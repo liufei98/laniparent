@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lanicommon/lanicommon.iml" filepath="$PROJECT_DIR$/lanicommon/lanicommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lanimanagerdao/lanimanagerdao.iml" filepath="$PROJECT_DIR$/lanimanagerdao/lanimanagerdao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lanimanagerservice/lanimanagerservice.iml" filepath="$PROJECT_DIR$/lanimanagerservice/lanimanagerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lanimanagerweb/lanimanagerweb.iml" filepath="$PROJECT_DIR$/lanimanagerweb/lanimanagerweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laniparent.iml" filepath="$PROJECT_DIR$/laniparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/laniportalweb/laniportalweb.iml" filepath="$PROJECT_DIR$/laniportalweb/laniportalweb.iml" />
+    </modules>
+  </component>
+</project>

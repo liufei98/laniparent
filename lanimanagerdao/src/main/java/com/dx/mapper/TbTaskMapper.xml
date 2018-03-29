@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dx.dao.TbTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.dx.pojo.TbTask" >
+    <id column="t_id" property="tId" jdbcType="INTEGER" />
+    <result column="t_name" property="tName" jdbcType="VARCHAR" />
+    <result column="t_address" property="tAddress" jdbcType="VARCHAR" />
+    <result column="t_type" property="tType" jdbcType="INTEGER" />
+    <result column="t_time" property="tTime" jdbcType="DATE" />
+    <result column="creat_time" property="creatTime" jdbcType="DATE" />
+    <result column="t_price" property="tPrice" jdbcType="DECIMAL" />
+    <result column="t_cost" property="tCost" jdbcType="DECIMAL" />
+    <result column="t_state" property="tState" jdbcType="INTEGER" />
+    <result column="t_picture" property="tPicture" jdbcType="VARCHAR" />
+    <result column="a_id" property="aId" jdbcType="INTEGER" />
+    <result column="uI_id" property="uiId" jdbcType="INTEGER" />
+    <result column="uY_id" property="uyId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dx.pojo.TbTask" extends="BaseResultMap" >
+    <result column="t_details" property="tDetails" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    t_id, t_name, t_address, t_type, t_time, creat_time, t_price, t_cost, t_state, t_picture, 
+    a_id, uI_id, uY_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    t_details
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dx.pojo.TbTaskExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dx.pojo.TbTaskExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_task
+    where t_id = #{tId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_task
+    where t_id = #{tId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dx.pojo.TbTaskExample" >
+    delete from tb_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dx.pojo.TbTask" >
+    insert into tb_task (t_id, t_name, t_address, 
+      t_type, t_time, creat_time, 
+      t_price, t_cost, t_state, 
+      t_picture, a_id, uI_id, 
+      uY_id, t_details)
+    values (#{tId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR}, #{tAddress,jdbcType=VARCHAR}, 
+      #{tType,jdbcType=INTEGER}, #{tTime,jdbcType=DATE}, #{creatTime,jdbcType=DATE}, 
+      #{tPrice,jdbcType=DECIMAL}, #{tCost,jdbcType=DECIMAL}, #{tState,jdbcType=INTEGER}, 
+      #{tPicture,jdbcType=VARCHAR}, #{aId,jdbcType=INTEGER}, #{uiId,jdbcType=INTEGER}, 
+      #{uyId,jdbcType=INTEGER}, #{tDetails,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dx.pojo.TbTask" >
+    insert into tb_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tId != null" >
+        t_id,
+      </if>
+      <if test="tName != null" >
+        t_name,
+      </if>
+      <if test="tAddress != null" >
+        t_address,
+      </if>
+      <if test="tType != null" >
+        t_type,
+      </if>
+      <if test="tTime != null" >
+        t_time,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="tPrice != null" >
+        t_price,
+      </if>
+      <if test="tCost != null" >
+        t_cost,
+      </if>
+      <if test="tState != null" >
+        t_state,
+      </if>
+      <if test="tPicture != null" >
+        t_picture,
+      </if>
+      <if test="aId != null" >
+        a_id,
+      </if>
+      <if test="uiId != null" >
+        uI_id,
+      </if>
+      <if test="uyId != null" >
+        uY_id,
+      </if>
+      <if test="tDetails != null" >
+        t_details,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tId != null" >
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tName != null" >
+        #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="tAddress != null" >
+        #{tAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tType != null" >
+        #{tType,jdbcType=INTEGER},
+      </if>
+      <if test="tTime != null" >
+        #{tTime,jdbcType=DATE},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=DATE},
+      </if>
+      <if test="tPrice != null" >
+        #{tPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="tCost != null" >
+        #{tCost,jdbcType=DECIMAL},
+      </if>
+      <if test="tState != null" >
+        #{tState,jdbcType=INTEGER},
+      </if>
+      <if test="tPicture != null" >
+        #{tPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="aId != null" >
+        #{aId,jdbcType=INTEGER},
+      </if>
+      <if test="uiId != null" >
+        #{uiId,jdbcType=INTEGER},
+      </if>
+      <if test="uyId != null" >
+        #{uyId,jdbcType=INTEGER},
+      </if>
+      <if test="tDetails != null" >
+        #{tDetails,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dx.pojo.TbTaskExample" resultType="java.lang.Integer" >
+    select count(*) from tb_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_task
+    <set >
+      <if test="record.tId != null" >
+        t_id = #{record.tId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tName != null" >
+        t_name = #{record.tName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tAddress != null" >
+        t_address = #{record.tAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tType != null" >
+        t_type = #{record.tType,jdbcType=INTEGER},
+      </if>
+      <if test="record.tTime != null" >
+        t_time = #{record.tTime,jdbcType=DATE},
+      </if>
+      <if test="record.creatTime != null" >
+        creat_time = #{record.creatTime,jdbcType=DATE},
+      </if>
+      <if test="record.tPrice != null" >
+        t_price = #{record.tPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tCost != null" >
+        t_cost = #{record.tCost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tState != null" >
+        t_state = #{record.tState,jdbcType=INTEGER},
+      </if>
+      <if test="record.tPicture != null" >
+        t_picture = #{record.tPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aId != null" >
+        a_id = #{record.aId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uiId != null" >
+        uI_id = #{record.uiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uyId != null" >
+        uY_id = #{record.uyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tDetails != null" >
+        t_details = #{record.tDetails,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update tb_task
+    set t_id = #{record.tId,jdbcType=INTEGER},
+      t_name = #{record.tName,jdbcType=VARCHAR},
+      t_address = #{record.tAddress,jdbcType=VARCHAR},
+      t_type = #{record.tType,jdbcType=INTEGER},
+      t_time = #{record.tTime,jdbcType=DATE},
+      creat_time = #{record.creatTime,jdbcType=DATE},
+      t_price = #{record.tPrice,jdbcType=DECIMAL},
+      t_cost = #{record.tCost,jdbcType=DECIMAL},
+      t_state = #{record.tState,jdbcType=INTEGER},
+      t_picture = #{record.tPicture,jdbcType=VARCHAR},
+      a_id = #{record.aId,jdbcType=INTEGER},
+      uI_id = #{record.uiId,jdbcType=INTEGER},
+      uY_id = #{record.uyId,jdbcType=INTEGER},
+      t_details = #{record.tDetails,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_task
+    set t_id = #{record.tId,jdbcType=INTEGER},
+      t_name = #{record.tName,jdbcType=VARCHAR},
+      t_address = #{record.tAddress,jdbcType=VARCHAR},
+      t_type = #{record.tType,jdbcType=INTEGER},
+      t_time = #{record.tTime,jdbcType=DATE},
+      creat_time = #{record.creatTime,jdbcType=DATE},
+      t_price = #{record.tPrice,jdbcType=DECIMAL},
+      t_cost = #{record.tCost,jdbcType=DECIMAL},
+      t_state = #{record.tState,jdbcType=INTEGER},
+      t_picture = #{record.tPicture,jdbcType=VARCHAR},
+      a_id = #{record.aId,jdbcType=INTEGER},
+      uI_id = #{record.uiId,jdbcType=INTEGER},
+      uY_id = #{record.uyId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dx.pojo.TbTask" >
+    update tb_task
+    <set >
+      <if test="tName != null" >
+        t_name = #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="tAddress != null" >
+        t_address = #{tAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tType != null" >
+        t_type = #{tType,jdbcType=INTEGER},
+      </if>
+      <if test="tTime != null" >
+        t_time = #{tTime,jdbcType=DATE},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=DATE},
+      </if>
+      <if test="tPrice != null" >
+        t_price = #{tPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="tCost != null" >
+        t_cost = #{tCost,jdbcType=DECIMAL},
+      </if>
+      <if test="tState != null" >
+        t_state = #{tState,jdbcType=INTEGER},
+      </if>
+      <if test="tPicture != null" >
+        t_picture = #{tPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="aId != null" >
+        a_id = #{aId,jdbcType=INTEGER},
+      </if>
+      <if test="uiId != null" >
+        uI_id = #{uiId,jdbcType=INTEGER},
+      </if>
+      <if test="uyId != null" >
+        uY_id = #{uyId,jdbcType=INTEGER},
+      </if>
+      <if test="tDetails != null" >
+        t_details = #{tDetails,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where t_id = #{tId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dx.pojo.TbTask" >
+    update tb_task
+    set t_name = #{tName,jdbcType=VARCHAR},
+      t_address = #{tAddress,jdbcType=VARCHAR},
+      t_type = #{tType,jdbcType=INTEGER},
+      t_time = #{tTime,jdbcType=DATE},
+      creat_time = #{creatTime,jdbcType=DATE},
+      t_price = #{tPrice,jdbcType=DECIMAL},
+      t_cost = #{tCost,jdbcType=DECIMAL},
+      t_state = #{tState,jdbcType=INTEGER},
+      t_picture = #{tPicture,jdbcType=VARCHAR},
+      a_id = #{aId,jdbcType=INTEGER},
+      uI_id = #{uiId,jdbcType=INTEGER},
+      uY_id = #{uyId,jdbcType=INTEGER},
+      t_details = #{tDetails,jdbcType=LONGVARCHAR}
+    where t_id = #{tId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dx.pojo.TbTask" >
+    update tb_task
+    set t_name = #{tName,jdbcType=VARCHAR},
+      t_address = #{tAddress,jdbcType=VARCHAR},
+      t_type = #{tType,jdbcType=INTEGER},
+      t_time = #{tTime,jdbcType=DATE},
+      creat_time = #{creatTime,jdbcType=DATE},
+      t_price = #{tPrice,jdbcType=DECIMAL},
+      t_cost = #{tCost,jdbcType=DECIMAL},
+      t_state = #{tState,jdbcType=INTEGER},
+      t_picture = #{tPicture,jdbcType=VARCHAR},
+      a_id = #{aId,jdbcType=INTEGER},
+      uI_id = #{uiId,jdbcType=INTEGER},
+      uY_id = #{uyId,jdbcType=INTEGER}
+    where t_id = #{tId,jdbcType=INTEGER}
+  </update>
+</mapper>

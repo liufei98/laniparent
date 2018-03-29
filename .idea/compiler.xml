@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lanicommon" />
+        <module name="lanimanagerdao" />
+        <module name="lanimanagerservice" />
+        <module name="lanimanagerweb" />
+        <module name="laniportalweb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="lanicommon" target="1.8" />
+      <module name="lanimanagerdao" target="1.8" />
+      <module name="lanimanagerservice" target="1.8" />
+      <module name="lanimanagerweb" target="1.8" />
+      <module name="laniparent" target="1.8" />
+      <module name="laniportalweb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
