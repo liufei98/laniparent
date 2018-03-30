@@ -11,6 +11,7 @@
         <module name="lanimanagerservice" />
         <module name="lanimanagerweb" />
         <module name="laniportalweb" />
+        <module name="ssm02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -20,6 +21,7 @@
       <module name="lanimanagerweb" target="1.8" />
       <module name="laniparent" target="1.8" />
       <module name="laniportalweb" target="1.8" />
+      <module name="ssm02" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,11 +3,13 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/lanimanagerweb" />
     <file type="web" url="file://$PROJECT_DIR$/laniportalweb" />
+    <file type="web" url="file://$PROJECT_DIR$/../../ssm/ssm02" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../ssm/ssm02/pom.xml" />
       </list>
     </option>
   </component>

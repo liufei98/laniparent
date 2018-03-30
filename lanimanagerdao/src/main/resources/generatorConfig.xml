@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <classPathEntry location="F:\Program Files\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" ></classPathEntry>
+  <classPathEntry location="D:\IDEASR\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" ></classPathEntry>
   <context id="context1" >
 	<commentGenerator>
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -22,7 +22,7 @@
 	  <table  tableName="tb_personal" domainObjectName="TbPersonal"></table>
 	  <table  tableName="tb_user" domainObjectName="TbUser"></table>
 	  <table  tableName="tb_task" domainObjectName="TbTask"></table>
-
+	  <table tableName="tb_superuser" domainObjectName="TbSuperUser"></table>
 
   </context>
 </generatorConfiguration>
