@@ -19,7 +19,7 @@
     <import resource="applicationContext-service.xml"></import>
    <!-- 表现层配置 -->
     <!-- 扫描action -->
-    <context:component-scan base-package="com.qf.action"></context:component-scan>
+    <context:component-scan base-package="com.dx.action"></context:component-scan>
     <!-- 注解的处理器映射器和处理器适配器 -->
     <mvc:annotation-driven></mvc:annotation-driven>
     <!-- 视图解析器 -->
@@ -34,6 +34,11 @@
     <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
     <mvc:resources mapping="/fonts/**" location="/fonts/"></mvc:resources>
     <mvc:resources mapping="/images/**" location="/images/"></mvc:resources>
+    
+    <mvc:resources mapping="/admin/assets/css/**" location="/admin/assets/css/"></mvc:resources>
+    <mvc:resources mapping="/admin/assets/fonts/**" location="/admin/assets/fonts/"></mvc:resources>
+    <mvc:resources mapping="/admin/assets/img/**" location="/admin/assets/img/"></mvc:resources>
+    <mvc:resources mapping="/admin/assets/js/**" location="/admin/assets/js/"></mvc:resources>
     <!-- 拦截器 -->
 
     <!-- 文件类型解析器
