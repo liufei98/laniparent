@@ -5,6 +5,7 @@ import com.dx.pojo.TbSuperUser;
 import com.dx.pojo.TbSuperUserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class SuperUserServiceImpl implements SuperUserService {
     public List<TbSuperUser> findByName(String name) {
 
         TbSuperUserExample example = new TbSuperUserExample();
-        if(name!=null){
+        if(!StringUtils.isEmpty(name)){
             TbSuperUserExample.Criteria criteria = example.createCriteria();
             criteria.andUsernameLike("%"+name+"%");
         }
