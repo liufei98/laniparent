@@ -8,7 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/lanimanagerweb/lanimanagerweb.iml" filepath="$PROJECT_DIR$/lanimanagerweb/lanimanagerweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/laniparent.iml" filepath="$PROJECT_DIR$/laniparent.iml" />
       <module fileurl="file://$PROJECT_DIR$/laniportalweb/laniportalweb.iml" filepath="$PROJECT_DIR$/laniportalweb/laniportalweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../springboot/springboot02/springboot02.iml" filepath="$PROJECT_DIR$/../../springboot/springboot02/springboot02.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../ssm/ssm02/ssm02.iml" filepath="$PROJECT_DIR$/../../ssm/ssm02/ssm02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../hibernate/ssshj/ssshj.iml" filepath="$PROJECT_DIR$/../../hibernate/ssshj/ssshj.iml" />
     </modules>
   </component>
 </project>
