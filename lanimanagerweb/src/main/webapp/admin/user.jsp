@@ -31,7 +31,7 @@
         <div id="cm-menu-items-wrapper">
             <div id="cm-menu-scroller">
                 <ul class="cm-menu-items">
-                    <li class="active"><a href="/admin/sulist" class="sf-profile">管理员</a></li>
+                    <li class="active"><a href="/admin/list" class="sf-profile">管理员</a></li>
                     <li><a href="/admin/ulist" class="sf-profile-group">用户管理</a></li>
                     <li><a href="type.html" class="sf-layers">类型管理</a></li>
                     <li><a href="login.html" class="sf-lock-open">Login page</a></li>
@@ -101,14 +101,14 @@
         <!--body2-->
 
         <div class="panel panel-default">
-            <div class="panel-heading">管理员</div>
+            <div class="panel-heading">用户</div>
             <div class="panel-body" id="demo-buttons">
                 <div class="row">
                     <!--模糊查询-->
 
-                    <form action="/admin/sulist" method="post">
+                    <form action="/admin/ulist" method="post">
                         <div style="width: 400px; float: right; margin-bottom: 20px;" class="input-group">
-                            <input type="text" name="uname" class="form-control" placeholder="输入超级用户名">
+                            <input type="text" name="uname" class="form-control" placeholder="输入用户名">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">搜索</button>
                             </span>
@@ -120,18 +120,22 @@
                             <thead>
                             <tr>
                                 <th>序号</th>
-                                <th>超级用户</th>
-                                <th>密码</th>
+                                <th>用户名</th>
+                                <th>性别</th>
+                                <th>电话</th>
+                                <th>邮箱</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
 
-                            <c:forEach items="${suList}" var="su" varStatus="i">
+                            <c:forEach items="${uList}" var="u" varStatus="i">
                             <tbody>
                             <tr>
                                 <th scope="row">${i.count}</th>
-                                <td>${su.username}</td>
-                                <td>******</td>
+                                <td>${u.username}</td>
+                                <td>${u.gender}</td>
+                                <td>${u.phone}</td>
+                                <td>${u.email}</td>
                                 <td>
                                     <button type="button" class="btn btn-danger">删除</button>
                                     <button type="button" class="btn btn-info">修改</button>
@@ -153,7 +157,7 @@
                                 </c:if>
                                 <c:if test="${pageDTO.currPage>1}">
                                     <li>
-                                        <a href="/admin/sulist?currPage=${pageDTO.currPage-1}">
+                                        <a href="/admin/ulist?currPage=${pageDTO.currPage-1}">
                                             <span><i class="fa fa-angle-left"></i></span>
                                         </a>
                                     </li>
@@ -161,10 +165,10 @@
                                 <%--循环>总页数--%>
                                 <c:forEach begin="1" end="${pageDTO.maxPage}" var="b">
                                     <c:if test="${b==pageDTO.currPage}">
-                                        <li class="active"><a href="/admin/sulist?currPage=${b}">${b}</a></li>
+                                        <li class="active"><a href="/admin/ulist?currPage=${b}">${b}</a></li>
                                     </c:if>
                                     <c:if test="${b!=pageDTO.currPage}">
-                                        <li><a href="/admin/sulist?currPage=${b}">${b}</a></li>
+                                        <li><a href="/admin/ulist?currPage=${b}">${b}</a></li>
                                     </c:if>
                                 </c:forEach>
                                 <c:if test="${pageDTO.currPage==pageDTO.maxPage}">
@@ -176,7 +180,7 @@
                                 </c:if>
                                 <c:if test="${pageDTO.currPage<pageDTO.maxPage}">
                                     <li>
-                                        <a href="/admin/sulist?currPage=${pageDTO.currPage+1}">
+                                        <a href="/admin/ulist?currPage=${pageDTO.currPage+1}">
                                             <span><i class="fa fa-angle-right"></i></span>
                                         </a>
                                     </li>

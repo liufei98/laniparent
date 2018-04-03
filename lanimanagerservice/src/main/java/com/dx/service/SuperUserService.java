@@ -1,7 +1,9 @@
 package com.dx.service;
 
+import com.dx.dto.PageDTO;
 import com.dx.pojo.TbSuperUser;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -19,5 +21,5 @@ public interface SuperUserService {
     public int delUser(Long id);
 
     //查询
-    public List<TbSuperUser> findByName(String name);
+    public List<TbSuperUser> findByName(String name,String currPageBack);
 }

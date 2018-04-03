@@ -1,5 +1,6 @@
 package com.dx.action;
 
+import com.dx.dto.PageDTO;
 import com.dx.pojo.TbSuperUser;
 import com.dx.service.SULoginService;
 import com.dx.service.SuperUserService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +41,7 @@ public class SuperUserAction {
             HttpSession session = request.getSession();
             session.setAttribute("username",username);
             System.out.println("登录成功");
-            return "forward:/admin/list";
+            return "forward:/admin/sulist";
         }else if (i<0){
             System.out.println("登录失败");
             return "/admin/login";
@@ -48,13 +50,14 @@ public class SuperUserAction {
     }
 
     //列表(主)
-    @RequestMapping("/admin/list")
-    public ModelAndView findByName(HttpServletRequest request){
+    @RequestMapping("/admin/sulist")
+    public ModelAndView findAll(HttpServletRequest request){
         ModelAndView mv = new ModelAndView();
-        String username = request.getParameter("username");
-        List<TbSuperUser> list = superUserService.findByName(username);
+        String username = request.getParameter("uname");
+        String currPage = request.getParameter("currPage");
+        List<TbSuperUser> list = superUserService.findByName(username,currPage);
         mv.addObject("suList",list);
         mv.setViewName("admin/index");
         return mv;
     }
-}
+ }

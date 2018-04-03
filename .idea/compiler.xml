@@ -12,6 +12,7 @@
         <module name="lanimanagerweb" />
         <module name="laniportalweb" />
         <module name="springboot02" />
+        <module name="springboot05" />
         <module name="ssm02" />
         <module name="ssshj" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="laniparent" target="1.8" />
       <module name="laniportalweb" target="1.8" />
       <module name="springboot02" target="1.8" />
+      <module name="springboot05" target="1.8" />
       <module name="ssm02" target="1.8" />
       <module name="ssshj" target="1.8" />
     </bytecodeTargetLevel>
